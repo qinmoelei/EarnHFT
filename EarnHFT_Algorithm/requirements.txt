@@ -1,0 +1,15 @@
+dtaidistance==2.3.10
+fastdtw==0.3.4
+matplotlib==3.7.1
+numpy==1.24.3
+pandas==1.3.5
+prettytable==3.9.0
+PyYAML==6.0
+PyYAML==6.0.1
+scikit_learn==1.2.2
+scipy==1.11.4
+statsmodels==0.14.0
+torch==2.0.1
+tqdm==4.65.0
+tslearn==0.5.3.2
+gym==0.21.0
