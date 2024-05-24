@@ -153,7 +153,7 @@ class Linear_Market_Dynamics_Model(object):
             self.dynamic_number, self.max_length_expectation, self.min_length_limit
         )
         print("finish fitting")
-        worker.label(os.path.dirname(self.data_path))
+        worker.label(os.path.dirname(self.data_path), final=True)
         labeled_data = pd.concat([v for v in worker.data_dict.values()], axis=0)
         flie_reader = self.file_extension_selector(read=True)
         extension = self.data_path.split(".")[-1]
@@ -199,10 +199,10 @@ class Linear_Market_Dynamics_Model(object):
                         "df_{}.feather".format(label_counter[previous_label]),
                     )
                 )
-                label_counter[previous_label]+=1
+                label_counter[previous_label] += 1
                 previous_start = i
                 previous_label = merged_data.label[i]
-                
+
         # print("plotting start")
         # # a list the path to all the modeling visulizations
         # market_dynamic_labeling_visualization_paths = worker.plot(

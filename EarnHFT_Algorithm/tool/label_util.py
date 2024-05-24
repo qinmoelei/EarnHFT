@@ -171,7 +171,7 @@ class Worker:
                 self.y_pred_dict[tic] = y_pred_list
                 self.norm_coef_list_dict[tic] = norm_coef_list
 
-    def label(self, work_dir=os.getcwd()):
+    def label(self, work_dir=os.getcwd(),final=False):
         # return a dict of label where key is the ticker and value is the label of time-series
         if self.method == "slice_and_merge":
             self.all_data_seg = []
@@ -187,6 +187,7 @@ class Worker:
                     tic,
                     self.dynamic_num,
                     labeling_method=self.labeling_method,
+                    final=final,
                 )
                 self.data_dict[tic]["label"] = label
                 self.all_data_seg.extend(data_seg)
@@ -215,6 +216,7 @@ class Worker:
         tic,
         dynamic_num=4,
         labeling_method=None,
+        final=False,
     ):
         data = data.reset_index(drop=True)
         data_seg = []
@@ -243,6 +245,10 @@ class Worker:
                 )
                 label_seg.append(flag)
                 index_seg.append(tic + "_" + str(i))
+        if final:
+            data_seg.append(data.iloc[turning_points[-1] :].to_list())
+            label_seg.append(flag)
+            index_seg.append(tic + "_" + str(len(turning_points)))
         return label, data_seg, label_seg, index_seg
 
     def preprocess(self, data):
