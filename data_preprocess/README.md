@@ -8,6 +8,8 @@ Use command `conda activate HFT_download` to activate the corresponding download
 Use command `pip install -r requirements.txt` to install all the indepencies.
 
 ## Downloading Crypto Data
+
+### Direct form Tardis API
 We download the crypto spot data from [Tardis](https://tardis.dev/), which contain all sorts of formats. 
 
 In this paper, we only need to download the [5-level orderbook snapshot](https://docs.tardis.dev/downloadable-csv-files#book_snapshot_5) and [trades](https://docs.tardis.dev/downloadable-csv-files#trades). We thoroughly explain how this data can be integrated into real trading senorita in the Appendix of the [paper](https://arxiv.org/pdf/2309.12891.pdf).
@@ -15,6 +17,32 @@ In this paper, we only need to download the [5-level orderbook snapshot](https:/
 Use `bash download_code/download.sh` to download the data, you can explore different time periods or trading pair by manipulating `--symbols`, `--start_date`, and `--end_date`.
 
 This code will automatically create a `download_from_tardis/XXX` folder in your workspace, where `XXX` represents the trading pair. The folder will contain 2 sub-folder:`book_snapshot_5` and `trades`, which contain files for each single day from `start_date` to `end_date`. 
+
+### Download Result Demonstration
+
+In case that most of the people do not have API key from [Tardis](https://tardis.dev/) or simply want to stick to their own data source but still want to utilize our preprocess tool, we further demonstrate the downloadin result.
+
+After executing the `bash download_code/download.sh`, we will get a folder named `download_from_tardis`, as demonstrated here.
+![data_structure](./pic/data_structure.png)
+
+In total we download two kinds of data: orderbook snapshot with 5 levels and trades dataset. Each folder contain the downloaded result for each day, as demonstrated here.
+| Orderbook Snaphot | Trade |
+|------------|------------|
+| ![Orderbook Snaphot](./pic/oe.png) | ![Changed interface](./pic/trade.png) |
+
+The downloaded files are csvs which look like these.
+| Orderbook Snaphot | Trade |
+|------------|------------|
+| ![Orderbook Snaphot](./pic/oe_snapshot.png) | ![Changed interface](./pic/trade_snapshot.png) |
+
+They contain columns
+| Orderbook Snaphot | Trade |
+|------------|------------|
+| ![Orderbook Snaphot](./pic/oe_column.png) | ![Changed interface](./pic/trade_column.png) |
+
+While other features are very easy to understand, the `timestamp` refers to the timestamp that the exchange sends out the message and `local_timestamp` refers to the timestamp that the Tardis receives. 
+
+You can get more demo data in gz format from this [link](https://docs.tardis.dev/downloadable-csv-files#data-types) provided by [Tardis](https://tardis.dev/)
 
 ## Preprocessing Crypto Data
 There are three steps to preprocess the downloaded data to usable data which can be used in training EarnHFT.
