@@ -42,7 +42,7 @@ They contain columns
 
 While other features are very easy to understand, the `timestamp` refers to the timestamp that the exchange sends out the message and `local_timestamp` refers to the timestamp that the Tardis receives. 
 
-You can get more demo data in gz format from this [link](https://docs.tardis.dev/downloadable-csv-files#data-types) provided by [Tardis](https://tardis.dev/)
+You can get more demo data in gz format from this [link](https://docs.tardis.dev/downloadable-csv-files#data-types) provided by [Tardis](https://tardis.dev/).
 
 ## Preprocessing Crypto Data
 There are three steps to preprocess the downloaded data to usable data which can be used in training EarnHFT.
