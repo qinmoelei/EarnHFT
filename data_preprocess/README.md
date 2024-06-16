@@ -28,19 +28,19 @@ After executing the `bash download_code/download.sh`, we will get a folder named
 In total we download two kinds of data: orderbook snapshot with 5 levels and trades dataset. Each folder contain the downloaded result for each day, as demonstrated here.
 | Orderbook Snaphot | Trade |
 |------------|------------|
-| ![Orderbook Snaphot](./pic/oe.png) | ![Changed interface](./pic/trade.png) |
+| ![Orderbook Snaphot](./pic/oe.png) | ![Trade](./pic/trade.png) |
 
 The downloaded files are csvs which look like these.
 | Orderbook Snaphot | Trade |
 |------------|------------|
-| ![Orderbook Snaphot](./pic/oe_snapshot.png) | ![Changed interface](./pic/trade_snapshot.png) |
+| ![Orderbook Snaphot](./pic/oe_snapshot.png) | ![Trade](./pic/trade_snapshot.png) |
 
 They contain columns
 | Orderbook Snaphot | Trade |
 |------------|------------|
-| ![Orderbook Snaphot](./pic/oe_column.png) | ![Changed interface](./pic/trade_column.png) |
+| ![Orderbook Snaphot](./pic/oe_column.png) | ![Trade](./pic/trade_column.png) |
 
-While other features are very easy to understand, the `timestamp` refers to the timestamp that the exchange sends out the message and `local_timestamp` refers to the timestamp that the Tardis receives. 
+While other features are very easy to understand, the `timestamp` refers to the timestamp when the exchange sends out the message and `local_timestamp` refers to the timestamp when Tardis receives the message. 
 
 You can get more demo data in gz format from this [link](https://docs.tardis.dev/downloadable-csv-files#data-types) provided by [Tardis](https://tardis.dev/).
 
