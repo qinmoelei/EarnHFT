@@ -1,14 +1,14 @@
 The offical implementation of the AAAI 2024 [EarnHFT:Efficient hierarchical reinforcement learning for high frequency trading](https://arxiv.org/pdf/2309.12891.pdf).
 
 # Data
-For data preprocessing part, please refer to data_preprocess/README.md.
+For data preprocessing part, please refer to [data_preprocess/README.md](https://github.com/qinmoelei/EarnHFT/tree/main/data_preprocess).
 
 We download the data from [tardis](https://tardis.dev/). You might need to purchase a API key to fully utilize our code.
 
 We first download the data from tardis, then do some preprocess to use the dataframe to construct the corresponding RL environment in the Algorithm part.
 
 # Algorithm
-For algorithm part, please refer to EarnHFT_Algorithm/README.md
+For algorithm part, please refer to [EarnHFT_Algorithm/README.md](https://github.com/qinmoelei/EarnHFT/tree/main/EarnHFT_Algorithm).
 
 We first train the low level agents which operates on a second-level with different preference parameter `beta`.
 
